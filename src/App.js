@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Clarifai from 'clarifai';
 import {getFaceBoundry} from './getFaceBoundry';
+// import {getFaceInfo} from './getFaceInfo';
 import FrameBox from './FrameBox';
 import './App.css';
 
@@ -14,19 +15,36 @@ class App extends Component {
 		this.state = {
 			input:'',
 			picture:'',
-			faceFrame:[]
+			faceFrame:[],
+			index:0,
+			ageInfo:{}
 		}
 	}
 
+	
+
     getAllFace = (data)=>{
-    	// console.log(data);
+    	console.log(data);
+    	const imageInfo = data.outputs[0].data.regions;
 		// const clarifaiFace = data.outputs[0].data.regions[1].region_info.bounding_box;
-		const allFace = data.outputs[0].data.regions.map(face => face);
+		const allFace = imageInfo.map(face => face);
 		this.setState({faceFrame:getFaceBoundry(allFace)});
-		console.log(this.state.faceFrame);
+		console.log(this.state.faceFrame); 
+
+		// let faceInfo = imageInfo[this.state.index].data.face.age_appearance;
+		// // console.log(faceInfo.concepts);
+		
+		// this.setState({ageInfo:faceInfo.concepts});
 		
 	}
+
+	getFaceInfo = (data) =>{
+		const imageInfo = data.outputs[0].data.regions[this.state.index].data.face.age_appearance;
+  		this.setState({ageInfo:imageInfo.concepts});
+	}
+
 	
+
 	onInputChange =(e)=>{
 		this.setState({input:e.target.value});
 	}
@@ -35,17 +53,26 @@ class App extends Component {
 		app.models.predict(
       	"c0c0ac362b03416da06ab3fa36fb58e3",
       	this.state.input)
-      	.then(response => 
-      		this.getAllFace(response)
+      	.then(response =>{
+
+      		this.getAllFace(response);
+      		this.getFaceInfo(response);
+      	}
+      
+      		
       	)
       	.catch(err => console.log);
+	}
+
+	onHandleMouse=(i)=>{
+		this.setState({index:i})
 	}
 
 
 
   render() {
   	const{faceFrame, picture} = this.state;
-  	
+  	console.log(this.state.index);
     return (
       <div className="App">
 
@@ -60,7 +87,11 @@ class App extends Component {
 
 		<div className='body_section'>
 			<div>
-				<FrameBox picture={picture} faceFrame={faceFrame}/>	
+				<FrameBox 
+					picture={picture} 
+					faceFrame={faceFrame} 
+					onHandleMouse ={this.onHandleMouse}
+				/>	
 			</div>
 		{/*<div className = 'box' style={{top:faceFrame.topRow, right:faceFrame.rightCol, bottom:faceFrame.bottomRow, left:faceFrame.leftCol}}></div> */}
 	   		<div className='info_section'>
