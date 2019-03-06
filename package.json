@@ -1,11 +1,13 @@
 {
-  "name": "voice-to-text",
+  "name": "demographic-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "clarifai": "^2.9.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "tachyons": "^4.11.1"
   },
   "scripts": {
     "start": "react-scripts start",
