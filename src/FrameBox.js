@@ -1,12 +1,13 @@
 import React from 'react';
 
 
-const FrameBox = ({picture,faceFrame,onHandleMouse})=>{
+
+const FrameBox = ( {picture,faceFrame,onHandleMouse})=>{
 
 	 const box = faceFrame.map((box,i)=>{
 	 	return(
 	 		<div 
-		 		className ='box link dim black center ma' 
+		 		className ='faceFrameBox link black dim' 
 		 		key={i} 
 		 		onMouseEnter ={()=>onHandleMouse(i)}
 		 		style={
@@ -21,14 +22,11 @@ const FrameBox = ({picture,faceFrame,onHandleMouse})=>{
 	 })
 
 	return(
-
-			<div className='absolute mt2'>
-				<img id='inputimage' alt='' src={picture} width='500px' height='auto'/>
 				
-				{box}
-			
-			</div>
-		
+				<div className='absolute mt2'>
+					<img id='inputimage' alt='' src={picture} width='600px' height='auto'/>
+					{box}	
+				</div>
 	)
 
 }

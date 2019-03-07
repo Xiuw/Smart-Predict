@@ -9,8 +9,7 @@
 button{
 	cursor:pointer;
 }
-
-.box{
+.faceFrameBox{
 	position:absolute;
 	box-shadow:0 0 0 3px #149df2 inset;
 	display:flex;
@@ -18,3 +17,23 @@ button{
 	justify-content: center;
 	cursor:pointer;
 }
+
+.body_section{
+	display:flex;
+	flex-direction:column;
+}
+.info_section{
+	width:700px;
+	height:100px;
+	border:5 solid;
+
+}
+.absolute-center{
+	display:flex;
+	 align-items: center;
+	  justify-content: center;
+	   margin: auto;
+	   width: 50%;
+
+}
+
