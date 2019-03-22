@@ -13,7 +13,9 @@ const initialState={
 	faceFrame:[],
 	index:0,
 	getInfo:[],
-	isVisible:false
+	isVisible:false，
+	inputState:'text',
+	stateText:'Upload local image'
 }
 
 const app = new Clarifai.App({
@@ -48,17 +50,39 @@ class App extends Component {
 
 
 	onInputChange =(e)=>{
-		this.setState({input:e.target.value});
+		console.log(e.target.value);
+;		
+
+		if(this.state.inputState ==='file'){
+			let file = e.target.files[0];
+		// console.log(file);
+		 	let reader  = new FileReader();
+		 	reader.readAsDataURL(file)
+		 	reader.onload = (e)=>{
+		 	this.setState({input:e.target.result})
+		 }
+		} else{
+			this.setState({input:e.target.value});
+		}
+	}
+
+	onHandleInputState= () =>{
+		if(this.state.inputState === 'text'){
+			this.setState({inputState:'file', stateText:'Submit by URL'})
+		}else{
+			this.setState({inputState:'text', stateText:'Upload local image'})
+		}
+		
 	}
 
 
 
 	onHandleSubmit=(e)=>{
 		this.setState({picture:this.state.input, isVisible:false});
-
+		let sendInput = this.state.input.split('').slice(23).join('');
 		app.models.predict(
       	"c0c0ac362b03416da06ab3fa36fb58e3",
-      	this.state.input)
+      	this.state.inputState === 'text'? this.state.input : sendInput)
       	.then(response =>{
       		this.getFaceArea(response);
 
@@ -87,12 +111,18 @@ class App extends Component {
 
 		<div className='center mb3'>
 			<div className='imageForm center pa1 br3 shadow-2'>
-	
+				<p className="link center dim pointer" onClick={this.onHandleInputState}>{this.state.stateText}</p>
+				{
+				this.state.inputState === "file" ?
+				<input className='f4 pa2 w-70 center' type="file" onChange={this.onInputChange} />
+				:
 				<input 
-					className='f4 pa2 w-70 center' 
-					type='text' 
-					onChange={this.onInputChange}
+						className='f4 pa2 w-70 center' 
+						type='text' 
+						onChange={this.onInputChange}
 				/>
+				
+			    }	
 		
 				<button 
 					className='w-30 f4 link grow ph3 pv2 dib white-80 bg-dark-blue' 
