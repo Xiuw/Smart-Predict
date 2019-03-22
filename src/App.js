@@ -82,7 +82,7 @@ class App extends Component {
       <div className="">
 
       	<h1 className='mt5 mb3 pa3 white-80 center'>Demographics App</h1>
-      	<p className="pa4 center">Submit a image URL below</p>
+      	<p className="pa4 center">Submit an image URL below</p>
       	
 
 		<div className='center mb3'>
