@@ -25,3 +25,15 @@ button{
 	display:flex;
 	justify-content: center;
 }
+
+
+input[type=file]::-webkit-file-upload-button {
+ 
+  background: #bf8de8;
+  color:white;
+  padding:9px;
+}
+
+.submitBtn{
+	background:#bf8de8;
+}

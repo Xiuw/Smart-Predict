@@ -13,9 +13,9 @@ const initialState={
 	faceFrame:[],
 	index:0,
 	getInfo:[],
-	isVisible:false，
+	isVisible:false,
 	inputState:'text',
-	stateText:'Upload local image'
+	stateText:'Submit local file'
 }
 
 const app = new Clarifai.App({
@@ -41,41 +41,37 @@ class App extends Component {
 			race.data.face.multicultural_appearance.concepts[0]);//For race
 		
 		this.setState({ 
-		     faceFrame:getFaceBoundry(allFace),
-			 getInfo:getNewInfo(getAge,getRace,getGender)
-
+		     faceFrame:getFaceBoundry(allFace), //set faceFrame 
+			 getInfo:getNewInfo(getAge,getRace,getGender)//set getInfo to whatever it is return back from getNewInfo function
 			});
 		
 	}
 
 
 	onInputChange =(e)=>{
-		console.log(e.target.value);
-;		
 
 		if(this.state.inputState ==='file'){
-			let file = e.target.files[0];
-		// console.log(file);
-		 	let reader  = new FileReader();
-		 	reader.readAsDataURL(file)
-		 	reader.onload = (e)=>{
-		 	this.setState({input:e.target.result})
-		 }
-		} else{
+			if(e.target.files[0]){
+
+				let file = e.target.files[0];
+		 		let reader  = new FileReader();
+		 		reader.readAsDataURL(file)
+		 		reader.onload = (e)=>{
+		 		this.setState({input:e.target.result})
+		 		}	
+			}
+		}else{
 			this.setState({input:e.target.value});
 		}
 	}
 
 	onHandleInputState= () =>{
 		if(this.state.inputState === 'text'){
-			this.setState({inputState:'file', stateText:'Submit by URL'})
+			this.setState({inputState:'file', stateText:'Submit URL'})
 		}else{
-			this.setState({inputState:'text', stateText:'Upload local image'})
+			this.setState({inputState:'text', stateText:'Submit local image'})
 		}
-		
 	}
-
-
 
 	onHandleSubmit=(e)=>{
 		this.setState({picture:this.state.input, isVisible:false});
@@ -85,11 +81,10 @@ class App extends Component {
       	this.state.inputState === 'text'? this.state.input : sendInput)
       	.then(response =>{
       		this.getFaceArea(response);
-
       	})
       	.catch(err => console.log);
-
 	}
+
 	onHandleMouse=(index)=>{
 		this.setState({
 			index:index,
@@ -98,46 +93,50 @@ class App extends Component {
 	}
 
   render() {
-  	const{faceFrame, picture,index,getInfo,isVisible} = this.state;
- 
+  	const{faceFrame, picture,index,getInfo,isVisible,stateText, inputState} = this.state;
   	let displayPerson = getInfo[index];
+  
 
     return (
       <div className="">
 
-      	<h1 className='mt5 mb3 pa3 white-80 center'>Demographics App</h1>
-      	<p className="pa4 center">Submit an image URL below</p>
-      	
+      	<h1 className='f1 mt5 mb3 pa3 center' style={{color:'#9943e0'}}>Demographics App</h1>
+      	<p className="pa3 center f4">Submit an image by URL or local file</p>
+      	<p className="link center dim pointer pa2" onClick={this.onHandleInputState}>
+      		<span className="ba pa2 white-80">{stateText}</span>
+      	</p>
 
-		<div className='center mb3'>
+		<div className='center mb3 mt3'>
 			<div className='imageForm center pa1 br3 shadow-2'>
-				<p className="link center dim pointer" onClick={this.onHandleInputState}>{this.state.stateText}</p>
 				{
-				this.state.inputState === "file" ?
-				<input className='f4 pa2 w-70 center' type="file" onChange={this.onInputChange} />
-				:
+				inputState === "file" ?
 				<input 
-						className='f4 pa2 w-70 center' 
-						type='text' 
-						onChange={this.onInputChange}
-				/>
-				
-			    }	
+					className='f4 w-70 center bg-white' 
+					type="file" 
+					onChange={this.onInputChange} />
+				:
 		
+				<input 
+					className='f4 pa2 w-70 center' 
+					type='text' 
+					placeholder='URL:'
+					onChange={this.onInputChange}
+				/>
+
+			    }	
 				<button 
-					className='w-30 f4 link grow ph3 pv2 dib white-80 bg-dark-blue' 
-					onClick={this.onHandleSubmit}>Submit
+					className='w-30 f4 link grow ph3 pv2 dib white-80 submitBtn' 
+					onClick={this.onHandleSubmit}>
+					Submit
 				</button>
 			
 			</div>
 		</div>
 
-	
 			<DisplayInfo 
 				info={displayPerson} 
 				isVisible={isVisible}
 			/>
-
 			<FrameBox 
 				picture={picture} 
 				faceFrame={faceFrame} 
