@@ -100,10 +100,10 @@ class App extends Component {
     return (
       <div className="">
 
-      	<h1 className='f1 mt5 mb3 pa3 center' style={{color:'#9943e0'}}>Demographics App</h1>
+      	<h1 className='f1-ns f3 mt5 mb3 pa3 center' style={{color:'#9943e0'}}>Demographics App</h1>
       	<p className="pa3 center f4">Submit an image by URL or local file</p>
       	<p className="link center dim pointer pa2" onClick={this.onHandleInputState}>
-      		<span className="ba pa2 white-80">{stateText}</span>
+      		<span className="ba pa2 white">{stateText}</span>
       	</p>
 
 		<div className='center mb3 mt3'>
@@ -125,7 +125,7 @@ class App extends Component {
 
 			    }	
 				<button 
-					className='w-30 f4 link grow ph3 pv2 dib white-80 submitBtn' 
+					className='w-30 f4 link grow ph3 pv2 dib white submitBtn' 
 					onClick={this.onHandleSubmit}>
 					Submit
 				</button>
