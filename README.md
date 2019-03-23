@@ -8,11 +8,11 @@
 </br>
 
 
-### <img src="src/image/pic3.jpg" width=400>
+### <img src="src/image/sh3.jpg" width=400>
 - After submit button is clicked, the face(s) in the image will be detected 
 
 
-### <img src="src/image/sh2.jpg" width=400>
+### <img src="src/image/pic2.jpg" width=400>
 - Hover over the boundry box to get the corresponding information(age,gender,and ethnic)
 - Only the one with highest posibility will be displayed for each category
 </br>
