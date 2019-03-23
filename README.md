@@ -9,12 +9,11 @@
 
 
 ### <img src="src/screenshots/dmgr2.jpg" width=400>
-- After submit button is clicked, the face(s) will be detected and responsed with a box around each face
-</br>
+- After submit button is clicked, the face(s) in the image will be detected 
 
 
 ### <img src="src/screenshots/dmgr.png" width=400>
-- Hover over the boundry box to receive the corresponding information
+- Hover over the boundry box to get the corresponding information(age,gender,and ethnic)
 - Only the one with highest posibility will be displayed for each category
 </br>
 
