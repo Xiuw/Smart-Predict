@@ -100,7 +100,7 @@ class App extends Component {
     return (
       <div className="">
 
-      	<h1 className='mt5 mb3 pa3 center' style={{color:'#9943e0'}}>Demographics App</h1>
+      	<h1 className='f3 f2-ns mt5 mb3 pa3 center' style={{color:'#9943e0'}}>Demographics App</h1>
       	<p className="pa3 center f4">Submit an image by URL or local file</p>
       	<p className="link center dim pointer pa2" onClick={this.onHandleInputState}>
       		<span className="ba pa2 white">{stateText}</span>
