@@ -13,22 +13,22 @@ const InfoSection = ({isVisible, age,agePercent,race,racePercent,gender,genderPe
 				<div className="mb3 mt3 mr3">
 					<div>
 						<span>Age: </span>
-						<span className='white-80 pr1'> {ag}</span>  
+						<span className='white pr1'> {ag}</span>  
 					</div>
 					<div>
 						<span>Probability:</span>
-						<span className='white-80 pr1'> {ageP}</span>
+						<span className='white pr1'> {ageP}</span>
 					</div>
 				</div>	
 
 				<div className="mb3 mt3 mr3">
 					<div>
 						<span>Gender:</span> 
-						<span className='white-80 pr1'> {gender}</span>
+						<span className='white pr1'> {gender}</span>
 					</div>
 					<div>  
 						<span>Probability:</span>
-						<span className='white-80 pr1'> {genderP}</span> 
+						<span className='white pr1'> {genderP}</span> 
 					</div>
 
 				</div>
@@ -36,11 +36,11 @@ const InfoSection = ({isVisible, age,agePercent,race,racePercent,gender,genderPe
 				<div className="mb3 mt3">
 					<div>
 						<span>Ethnic: </span>
-						<span className='white-80 pr1'> {race}</span> 
+						<span className='white pr1'> {race}</span> 
 					</div>
 					<div> 
 						<span>Probability:</span>
-						<span className='white-80 pr1'> {raceP}</span> 
+						<span className='white pr1'> {raceP}</span> 
 					</div>
 				</div>
 			
