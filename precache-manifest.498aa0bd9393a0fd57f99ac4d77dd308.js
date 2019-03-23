@@ -1,26 +1,30 @@
 self.__precacheManifest = [
   {
+    "revision": "203f08a128757a09e19811a0bf0cd9ce",
+    "url": "/demographic-app/static/media/background.203f08a1.png"
+  },
+  {
     "revision": "f44f04f5f3736647dfe2",
     "url": "/demographic-app/static/js/runtime~main.f44f04f5.js"
   },
   {
-    "revision": "ed486ad719f2bef81690",
-    "url": "/demographic-app/static/js/main.ed486ad7.chunk.js"
+    "revision": "8cc9f3079b7c91376f8e",
+    "url": "/demographic-app/static/js/main.8cc9f307.chunk.js"
   },
   {
     "revision": "d8cb8961bef3b11f1415",
     "url": "/demographic-app/static/js/2.d8cb8961.chunk.js"
   },
   {
-    "revision": "ed486ad719f2bef81690",
-    "url": "/demographic-app/static/css/main.fedec52b.chunk.css"
+    "revision": "8cc9f3079b7c91376f8e",
+    "url": "/demographic-app/static/css/main.30fa1c58.chunk.css"
   },
   {
     "revision": "d8cb8961bef3b11f1415",
     "url": "/demographic-app/static/css/2.cef3fa15.chunk.css"
   },
   {
-    "revision": "cca5cb79fb6119507aa3b4b4a1e0971b",
+    "revision": "15c188ee304b3403567099ad4121065e",
     "url": "/demographic-app/index.html"
   }
 ];
