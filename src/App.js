@@ -30,9 +30,7 @@ class App extends Component {
 
     getFaceArea = (data)=>{
     	const imageInfo = data.outputs[0].data.regions;
-
 		const allFace = imageInfo.map(face => face);//For Calculate face location in a image
-
 		const getAge = imageInfo.map(age =>
 			age.data.face.age_appearance.concepts[0]);//For age
 		const getGender = imageInfo.map(gender =>
@@ -101,7 +99,7 @@ class App extends Component {
       <div className="">
 
       	<h1 className='f3 f2-ns mt5 mb3 pa3 center' style={{color:'#9943e0'}}>Demographics App</h1>
-      	<p className="pa3 center f4-ns f5">Submit an image by URL or local file</p>
+      	<p className="pa3 center f4-ns">Submit an image by URL or local file</p>
       	<p className="link center dim pointer pa2" onClick={this.onHandleInputState}>
       		<span className="ba pa2 white">{stateText}</span>
       	</p>
