@@ -19,7 +19,7 @@ const initialState={
 }
 
 const app = new Clarifai.App({
- apiKey: '96b6b6990bce404ea56ca1c12646b30e'
+ apiKey: process.env.CLARIFAIAPI
 });
 
 class App extends Component {
