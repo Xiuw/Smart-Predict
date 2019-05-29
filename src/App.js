@@ -18,9 +18,6 @@ const initialState={
 	stateText:'Local file'
 }
 
-const app = new Clarifai.App({
- apiKey: process.env.CLARIFAIAPI
-});
 
 class App extends Component {
 	constructor(){
@@ -146,5 +143,10 @@ class App extends Component {
     );
   }
 }
+
+const app = new Clarifai.App({
+ apiKey: '96b6b6990bce404ea56ca1c12646b30e'
+});
+
 
 export default App;
