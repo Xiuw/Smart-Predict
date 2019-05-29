@@ -15,11 +15,11 @@ const initialState={
 	getInfo:[],
 	isVisible:false,
 	inputState:'text',
-	stateText:'Submit local file'
+	stateText:'Local file'
 }
 
 const app = new Clarifai.App({
- apiKey: '96b6b6990bce404ea56ca1c12646b30e'
+ apiKey: process.env.CLARIFAIAPI
 });
 
 class App extends Component {
@@ -67,9 +67,9 @@ class App extends Component {
 
 	onHandleInputState= () =>{
 		if(this.state.inputState === 'text'){
-			this.setState({inputState:'file', stateText:'Submit URL'})
+			this.setState({inputState:'file', stateText:'URL'})
 		}else{
-			this.setState({inputState:'text', stateText:'Submit local image'})
+			this.setState({inputState:'text', stateText:'Local image'})
 		}
 	}
 
@@ -101,23 +101,23 @@ class App extends Component {
       <div className="">
 
       	<h1 className='f3 f2-ns mt5 mb3 pa3 center' style={{color:'#9943e0'}}>Demographics App</h1>
-      	<p className="pa3 center f4">Submit an image by URL or local file</p>
+      	<p className="pa3 center f4-ns f5">Submit an image by URL or local file</p>
       	<p className="link center dim pointer pa2" onClick={this.onHandleInputState}>
       		<span className="ba pa2 white">{stateText}</span>
       	</p>
 
 		<div className='center mb3 mt3'>
-			<div className='imageForm center pa1 br3 shadow-2'>
+			<div className='imageForm  pa1 br3 shadow-2 ml3 mr3'>
 				{
 				inputState === "file" ?
 				<input 
-					className='f4 w-70 center bg-white' 
+					className='f4-ns f5 w-70  bg-white' 
 					type="file" 
 					onChange={this.onInputChange} />
 				:
 		
 				<input 
-					className='f4 pa2 w-70 center' 
+					className='f4-ns f5 pa2 w-70' 
 					type='text' 
 					placeholder='URL:'
 					onChange={this.onInputChange}
@@ -125,7 +125,7 @@ class App extends Component {
 
 			    }	
 				<button 
-					className='w-30 f4 link grow ph3 pv2 dib white submitBtn' 
+					className='w-30 f4-ns link grow ph3 pv2 dib white submitBtn' 
 					onClick={this.onHandleSubmit}>
 					Submit
 				</button>
