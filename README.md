@@ -1,6 +1,7 @@
 ## Demographic App
 ### This app is using Clarifai API's DEMOGRAPHICS_MODEL
-  - to predict people's age, ethnic, and gender 
+  - Detect face(s) on an image
+  - Predict people's age, ethnic, and gender 
   
 ### Screenshots with user stories
 ### <img src="src/image/sh1.jpg"  width=400> 
