@@ -1,16 +1,16 @@
 {
-  "main.css": "/demographic-app/static/css/main.c4f3b51e.chunk.css",
-  "main.js": "/demographic-app/static/js/main.c7fc294a.chunk.js",
-  "main.js.map": "/demographic-app/static/js/main.c7fc294a.chunk.js.map",
+  "main.css": "/demographic-app/static/css/main.bb21dd83.chunk.css",
+  "main.js": "/demographic-app/static/js/main.52d51218.chunk.js",
+  "main.js.map": "/demographic-app/static/js/main.52d51218.chunk.js.map",
   "runtime~main.js": "/demographic-app/static/js/runtime~main.f44f04f5.js",
   "runtime~main.js.map": "/demographic-app/static/js/runtime~main.f44f04f5.js.map",
   "static/css/2.cfb604a1.chunk.css": "/demographic-app/static/css/2.cfb604a1.chunk.css",
   "static/js/2.bcc1c1cd.chunk.js": "/demographic-app/static/js/2.bcc1c1cd.chunk.js",
   "static/js/2.bcc1c1cd.chunk.js.map": "/demographic-app/static/js/2.bcc1c1cd.chunk.js.map",
   "index.html": "/demographic-app/index.html",
-  "precache-manifest.72453deeb03d5a5d8a5b406e797cc4a7.js": "/demographic-app/precache-manifest.72453deeb03d5a5d8a5b406e797cc4a7.js",
+  "precache-manifest.31ea1fa8b3c47341c01c587a79d93b52.js": "/demographic-app/precache-manifest.31ea1fa8b3c47341c01c587a79d93b52.js",
   "service-worker.js": "/demographic-app/service-worker.js",
   "static/css/2.cfb604a1.chunk.css.map": "/demographic-app/static/css/2.cfb604a1.chunk.css.map",
-  "static/css/main.c4f3b51e.chunk.css.map": "/demographic-app/static/css/main.c4f3b51e.chunk.css.map",
+  "static/css/main.bb21dd83.chunk.css.map": "/demographic-app/static/css/main.bb21dd83.chunk.css.map",
   "static/media/index.css": "/demographic-app/static/media/bluewave.2a50ada7.png"
 }
