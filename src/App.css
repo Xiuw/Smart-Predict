@@ -50,7 +50,3 @@ input:focus{
 button:focus{
 	outline:none;
 }
-#inputImage{
-	width:600px;
-	height:auto;
-}

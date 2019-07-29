@@ -23,7 +23,7 @@ const FrameBox = ({picture,faceFrame,onHandleMouse})=>{
 			<div className='center'>
 				<div className='absolute mt2 absolute-center'>
 					{faceFrame.length > 0 ? <p className="washed-yellow">*Hover over the box to see the result</p>:""}
-					<img id='inputimage' alt='' src={picture}/>
+					<img id='inputimage' alt='' src={picture} width='600px' height='auto'/>
 					{box}
 				</div>
 			</div>

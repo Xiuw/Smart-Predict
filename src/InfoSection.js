@@ -10,7 +10,7 @@ const InfoSection = ({isVisible, age,agePercent,race,racePercent,gender,genderPe
 	return(
 		<div className="h3 light-blue">
 
-		<div className="w-70 center" style={isVisible?{display:'block'}:{display: 'none'}}>
+		<div className="w-80 center" style={isVisible?{display:'block'}:{display: 'none'}}>
 			<div className=" center">	
 				<div className="mb3 mt3 mr3">
 					<div>
