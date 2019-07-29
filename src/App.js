@@ -80,10 +80,10 @@ class App extends Component {
       			this.getFaceArea(response);
       			this.setState({error:false})
       	    }else{
-      	    this.setState({error:true,faceFrame:[]})
+      	    this.setState({error:true,picture:"",faceFrame:[]})
       		}	
       	})
-      	.catch(err => this.setState({error:true,faceFrame:[]}));
+      	.catch(err => this.setState({error:true,picture:"",faceFrame:[]}));
       	}
 	}
 
