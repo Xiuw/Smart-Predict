@@ -1,10 +1,10 @@
 body {
   	margin: 0;
  	padding: 0;
-	background-image:url('image/background.png');
+	background-image:url('image/bluewave.png');
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-attachment: fixed;
-  	font-family: 'roboto', sans-serif;
+	font-family:helvetica,sans-serif;
 }
 

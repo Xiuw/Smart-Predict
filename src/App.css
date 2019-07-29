@@ -29,12 +29,28 @@ button{
 
 
 input[type=file]::-webkit-file-upload-button {
- 
-  background: #bf8de8;
-  color:white;
+  color:gray;
   padding:9px;
+  border:1px solid white;
 }
 
 .submitBtn{
-	background:#bf8de8;
+	background:white;
+	color:navy;
+	border:solid 2px navy;
+
+}
+.submitBtn:hover{
+	color:white;
+	background:navy;
+}
+input:focus{
+	outline:none;
+}
+button:focus{
+	outline:none;
+}
+#inputImage{
+	width:600px;
+	height:auto;
 }

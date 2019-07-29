@@ -15,7 +15,8 @@ const initialState={
 	getInfo:[],
 	isVisible:false,
 	inputState:'text',
-	stateText:'Local'
+	stateText:'local',
+	error:false
 }
 
 
@@ -34,14 +35,11 @@ class App extends Component {
 			gender.data.face.gender_appearance.concepts[0]);//For gender
 		const getRace = imageInfo.map(race =>
 			race.data.face.multicultural_appearance.concepts[0]);//For race
-		
 		this.setState({ 
-		     faceFrame:getFaceBoundry(allFace), //set faceFrame 
-			 getInfo:getNewInfo(getAge,getRace,getGender)//set getInfo to whatever it is return back from getNewInfo function
-			});
-		
+	     faceFrame:getFaceBoundry(allFace), //set faceFrame 
+		 getInfo:getNewInfo(getAge,getRace,getGender)//set getInfo to whatever it is return back from getNewInfo function
+		});		
 	}
-
 
 	onInputChange =(e)=>{
 
@@ -59,15 +57,13 @@ class App extends Component {
 			this.setState({input:e.target.value});
 		}
 	}
-
 	onHandleInputState= () =>{
 		if(this.state.inputState === 'text'){
 			this.setState({inputState:'file', stateText:'URL'})
 		}else{
-			this.setState({inputState:'text', stateText:'Local'})
+			this.setState({inputState:'text', stateText:'local'})
 		}
 	}
-
 	onHandleSubmit=(e)=>{
 		this.setState({picture:this.state.input, isVisible:false});
 		let sendInput = this.state.input.split('').slice(23).join('');
@@ -79,9 +75,15 @@ class App extends Component {
       	"c0c0ac362b03416da06ab3fa36fb58e3",
       	this.state.inputState === 'text'? this.state.input : sendInput)
       	.then(response =>{
-      		this.getFaceArea(response);
+
+      		if(response.outputs[0].data.regions.length>0){
+      			this.getFaceArea(response);
+      			this.setState({error:false})
+      	    }else{
+      	    this.setState({error:true,faceFrame:[]})
+      		}	
       	})
-      	.catch(err => console.log);
+      	.catch(err => this.setState({error:true,faceFrame:[]}));
       	}
 	}
 
@@ -93,63 +95,50 @@ class App extends Component {
 	}
 
   render() {
-  	const{faceFrame, picture,index,getInfo,isVisible,stateText, inputState} = this.state;
+  	const{faceFrame, picture,index,getInfo,isVisible,stateText, inputState,error} = this.state;
   	let displayPerson = getInfo[index];
-  
-
     return (
-      <div className="monaco">
+      <div className="washed-yellow">
 
-      	<h1 className='f3 f2-ns mt5 mb1 pa2 center' style={{color:'#9943e0'}}>Demographics App</h1>
-      	<p className=" center f5 mid-gray">Age, gender, ethnic prediction</p>
-  		<p className="center pa2 white " onClick={this.onHandleInputState}>
-      		<span className="ba pointer pa2 br2 w3 tc">{stateText}</span>
-	      	</p>
-
-      	{/*<div className="center white">
-      	<p className="ba mr2 pa2 w3 tc br2 link  hover-purple" onClick={this.onHandleInputState}>URL</p>
-      	<p className="ba ml2 pa2 w3 tc br2 link hover-purple" onClick={this.onHandleInputState}>Local</p>
-      	</div>*/}
-      	<p className=" center f5 mid-gray">Submit an image below</p>
+      	<h1 className='f3 f1-ns mt5 mb1 pa2 center  fw5'>Demographics App</h1>
+      	<p className=" center f5-ns f6 ml2 mr2">Submit an image for age, gender, ethnic prediction</p>
+  		<p className="center pa2 " onClick={this.onHandleInputState}>
+      		<span className="ba pointer pa2 br2 w4 tc dim">Submit by {stateText}</span>
+	    </p>
 		<div className='center mb3 mt3'>
-			<div className='imageForm  pa2 br3 shadow-2 ml3 mr3'>
+			<div className='imageForm ml3 mr3 ba'>
 				{
 				inputState === "file" ?
 				<input 
-					className='f4-ns f5 w-70  bg-white' 
+					className='f4-ns f5 w-70' 
 					type="file" 
 					onChange={this.onInputChange} />
-				:
-		
+				:	
 				<input 
 					className='f4-ns f5 pa2 w-70' 
 					type='text' 
 					placeholder='URL:'
 					onChange={this.onInputChange}
 				/>
-
 			    }	
 				<button 
-					className='w-30 f4-ns link grow ph3 pv2 dib white submitBtn' 
+					className='w-30 f4-ns ph3 pv2 dib submitBtn' 
 					onClick={this.onHandleSubmit}>
 					Submit
-				</button>
-			
+				</button>			
 			</div>
 		</div>
-
+		
+			{error?<p className="center f4">Error detecting face...</p>:""}
 			<DisplayInfo 
 				info={displayPerson} 
 				isVisible={isVisible}
 			/>
-
 			<FrameBox 
 				picture={picture} 
 				faceFrame={faceFrame} 
-				onHandleMouse ={this.onHandleMouse}
-				
+				onHandleMouse ={this.onHandleMouse}			
 			/>
-
       </div>
     );
   }
@@ -158,6 +147,5 @@ class App extends Component {
 const app = new Clarifai.App({
  apiKey: '96b6b6990bce404ea56ca1c12646b30e'
 });
-
 
 export default App;

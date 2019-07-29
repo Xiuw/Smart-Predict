@@ -8,7 +8,7 @@ const InfoSection = ({isVisible, age,agePercent,race,racePercent,gender,genderPe
 	const genderP=Math.round(genderPercent*100)+'%';  
 
 	return(
-		<div className="h3 mid-gray">
+		<div className="h3 light-blue">
 
 		<div className="w-70 center" style={isVisible?{display:'block'}:{display: 'none'}}>
 			<div className=" center">	
