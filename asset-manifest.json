@@ -1,16 +1,16 @@
 {
-  "main.css": "/demographic-app/static/css/main.5662f56b.chunk.css",
-  "main.js": "/demographic-app/static/js/main.e519a085.chunk.js",
-  "main.js.map": "/demographic-app/static/js/main.e519a085.chunk.js.map",
+  "main.css": "/demographic-app/static/css/main.c4f3b51e.chunk.css",
+  "main.js": "/demographic-app/static/js/main.c7fc294a.chunk.js",
+  "main.js.map": "/demographic-app/static/js/main.c7fc294a.chunk.js.map",
   "runtime~main.js": "/demographic-app/static/js/runtime~main.f44f04f5.js",
   "runtime~main.js.map": "/demographic-app/static/js/runtime~main.f44f04f5.js.map",
-  "static/css/2.ffa51bc4.chunk.css": "/demographic-app/static/css/2.ffa51bc4.chunk.css",
-  "static/js/2.b5c7f9d2.chunk.js": "/demographic-app/static/js/2.b5c7f9d2.chunk.js",
-  "static/js/2.b5c7f9d2.chunk.js.map": "/demographic-app/static/js/2.b5c7f9d2.chunk.js.map",
+  "static/css/2.cfb604a1.chunk.css": "/demographic-app/static/css/2.cfb604a1.chunk.css",
+  "static/js/2.bcc1c1cd.chunk.js": "/demographic-app/static/js/2.bcc1c1cd.chunk.js",
+  "static/js/2.bcc1c1cd.chunk.js.map": "/demographic-app/static/js/2.bcc1c1cd.chunk.js.map",
   "index.html": "/demographic-app/index.html",
-  "precache-manifest.572fc7abe1d8e258ada229c28560ca6c.js": "/demographic-app/precache-manifest.572fc7abe1d8e258ada229c28560ca6c.js",
+  "precache-manifest.72453deeb03d5a5d8a5b406e797cc4a7.js": "/demographic-app/precache-manifest.72453deeb03d5a5d8a5b406e797cc4a7.js",
   "service-worker.js": "/demographic-app/service-worker.js",
-  "static/css/2.ffa51bc4.chunk.css.map": "/demographic-app/static/css/2.ffa51bc4.chunk.css.map",
-  "static/css/main.5662f56b.chunk.css.map": "/demographic-app/static/css/main.5662f56b.chunk.css.map",
-  "static/media/index.css": "/demographic-app/static/media/background.203f08a1.png"
+  "static/css/2.cfb604a1.chunk.css.map": "/demographic-app/static/css/2.cfb604a1.chunk.css.map",
+  "static/css/main.c4f3b51e.chunk.css.map": "/demographic-app/static/css/main.c4f3b51e.chunk.css.map",
+  "static/media/index.css": "/demographic-app/static/media/bluewave.2a50ada7.png"
 }
