@@ -15,7 +15,7 @@ const initialState={
 	getInfo:[],
 	isVisible:false,
 	inputState:'text',
-	stateText:'Local file'
+	stateText:'Local'
 }
 
 
@@ -64,13 +64,17 @@ class App extends Component {
 		if(this.state.inputState === 'text'){
 			this.setState({inputState:'file', stateText:'URL'})
 		}else{
-			this.setState({inputState:'text', stateText:'Local image'})
+			this.setState({inputState:'text', stateText:'Local'})
 		}
 	}
 
 	onHandleSubmit=(e)=>{
 		this.setState({picture:this.state.input, isVisible:false});
 		let sendInput = this.state.input.split('').slice(23).join('');
+		if(this.state.input ===""){
+			alert("Please submit an image. Your input is empty!!!")
+		}
+		else{
 		app.models.predict(
       	"c0c0ac362b03416da06ab3fa36fb58e3",
       	this.state.inputState === 'text'? this.state.input : sendInput)
@@ -78,6 +82,7 @@ class App extends Component {
       		this.getFaceArea(response);
       	})
       	.catch(err => console.log);
+      	}
 	}
 
 	onHandleMouse=(index)=>{
@@ -93,16 +98,21 @@ class App extends Component {
   
 
     return (
-      <div className="">
+      <div className="monaco">
 
-      	<h1 className='f3 f2-ns mt5 mb3 pa3 center' style={{color:'#9943e0'}}>Demographics App</h1>
-      	<p className="pa3 center f4-ns">Submit an image by URL or local file</p>
-      	<p className="link center dim pointer pa2" onClick={this.onHandleInputState}>
-      		<span className="ba pa2 white">{stateText}</span>
-      	</p>
+      	<h1 className='f3 f2-ns mt5 mb1 pa2 center' style={{color:'#9943e0'}}>Demographics App</h1>
+      	<p className=" center f5 mid-gray">Age, gender, ethnic prediction</p>
+  		<p className="center pa2 white " onClick={this.onHandleInputState}>
+      		<span className="ba pointer pa2 br2 w3 tc">{stateText}</span>
+	      	</p>
 
+      	{/*<div className="center white">
+      	<p className="ba mr2 pa2 w3 tc br2 link  hover-purple" onClick={this.onHandleInputState}>URL</p>
+      	<p className="ba ml2 pa2 w3 tc br2 link hover-purple" onClick={this.onHandleInputState}>Local</p>
+      	</div>*/}
+      	<p className=" center f5 mid-gray">Submit an image below</p>
 		<div className='center mb3 mt3'>
-			<div className='imageForm  pa1 br3 shadow-2 ml3 mr3'>
+			<div className='imageForm  pa2 br3 shadow-2 ml3 mr3'>
 				{
 				inputState === "file" ?
 				<input 
@@ -132,6 +142,7 @@ class App extends Component {
 				info={displayPerson} 
 				isVisible={isVisible}
 			/>
+
 			<FrameBox 
 				picture={picture} 
 				faceFrame={faceFrame} 
