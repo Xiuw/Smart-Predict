@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/demographic-app/precache-manifest.1be09f5bc559bbf076eeb2af58fb5668.js"
+  "/Smart-Predict/precache-manifest.1c59a461f572450fcec7a492a9ab69b1.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/demographic-app/index.html", {
+workbox.routing.registerNavigationRoute("/Smart-Predict/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
