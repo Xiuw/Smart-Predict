@@ -19,7 +19,6 @@ const initialState={
 	error:false
 }
 
-
 class App extends Component {
 	constructor(){
 		super();
@@ -42,7 +41,6 @@ class App extends Component {
 	}
 
 	onInputChange =(e)=>{
-
 		if(this.state.inputState ==='file'){
 			if(e.target.files[0]){
 
@@ -86,23 +84,21 @@ class App extends Component {
       	.catch(err => this.setState({error:true,picture:"",faceFrame:[]}));
       	}
 	}
-
 	onHandleMouse=(index)=>{
 		this.setState({
 			index:index,
 			isVisible:true
 		});
 	}
-
   render() {
   	const{faceFrame, picture,index,getInfo,isVisible,stateText, inputState,error} = this.state;
   	let displayPerson = getInfo[index];
     return (
       <div className="washed-yellow">
 
-      	<h1 className='f3 f1-ns mt5 mb1 pa2 center  fw5'>Demographics App</h1>
-      	<p className=" center f5-ns f6 ml2 mr2">Submit an image for age, gender, ethnic prediction</p>
-  		<p className="center pa2 " onClick={this.onHandleInputState}>
+      	<h1 className='f3 f1-ns mt5 mb1 pa2 center  fw5'>Smart Predict</h1>
+      	<p className=" center f5-ns f6 ml2 mr2 pt2">Submit an image for age, gender, ethnic prediction</p>
+  		<p className="center pa3 " onClick={this.onHandleInputState}>
       		<span className="ba pointer pa2 br2 w4 tc dim">Submit by {stateText}</span>
 	    </p>
 		<div className='center mb3 mt3'>
@@ -130,6 +126,7 @@ class App extends Component {
 		</div>
 		
 			{error?<p className="center f4">Error detecting face...</p>:""}
+			{faceFrame.length > 0 ? <p className="washed-yellow center">*Hover over the box to see the result</p>:""}
 			<DisplayInfo 
 				info={displayPerson} 
 				isVisible={isVisible}

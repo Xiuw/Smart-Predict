@@ -1,7 +1,7 @@
 {
   "name": "demographic-app",
   "version": "0.1.0",
-  "homepage": "http://XiuW.github.io/demographic-app",
+  "homepage": "http://XiuW.github.io/Smart-Predict",
   "private": true,
   "dependencies": {
     "clarifai": "^2.9.0",

@@ -29,7 +29,8 @@ button{
 
 
 input[type=file]::-webkit-file-upload-button {
-  color:gray;
+ background:white;
+  color:navy;
   padding:9px;
   border:1px solid white;
 }
